@@ -463,8 +463,19 @@ def uploaded_file(filename):
 def static_file(filename):
     return send_from_directory('static', filename)
 
+# Инициализация при запуске (для Vercel и других production-сред)
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
+def initialize_app():
+    """Инициализация базы данных при старте приложения"""
+    try:
+        with app.app_context():
+            init_db()
+    except Exception as e:
+        print(f"DB init error: {e}")
+
+# Вызываем инициализацию при импорте модуля (для Vercel)
+initialize_app()
+
 if __name__ == '__main__':
-    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-    with app.app_context():
-        init_db()
     app.run(debug=True, host='0.0.0.0', port=5000)
