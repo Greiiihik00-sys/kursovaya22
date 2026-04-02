@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Админ-панель{% endblock %}
+{% block content %}
+<section class="admin-section">
+    <div class="container">
+        <h2 class="section-title">Панель управления</h2>
+        
+        <div class="admin-grid">
+            <div class="admin-card">
+                <div class="admin-card-icon"><i class="fas fa-car"></i></div>
+                <div class="admin-card-info">
+                    <h3>{{ cars_count }}</h3>
+                    <p>Автомобилей</p>
+                </div>
+                <a href="{{ url_for('admin_cars') }}" class="admin-card-link">Управление</a>
+            </div>
+            
+            <div class="admin-card">
+                <div class="admin-card-icon"><i class="fas fa-users"></i></div>
+                <div class="admin-card-info">
+                    <h3>{{ clients_count }}</h3>
+                    <p>Клиентов</p>
+                </div>
+                <a href="{{ url_for('admin_clients') }}" class="admin-card-link">Управление</a>
+            </div>
+            
+            <div class="admin-card">
+                <div class="admin-card-icon"><i class="fas fa-handshake"></i></div>
+                <div class="admin-card-info">
+                    <h3>{{ deals_count }}</h3>
+                    <p>Сделок</p>
+                </div>
+                <a href="{{ url_for('admin_deals') }}" class="admin-card-link">Управление</a>
+            </div>
+            
+            <div class="admin-card">
+                <div class="admin-card-icon"><i class="fas fa-ruble-sign"></i></div>
+                <div class="admin-card-info">
+                    <h3>{{ "{:,.0f}".format(total_revenue) }} ₽</h3>
+                    <p>Общая выручка</p>
+                </div>
+                <a href="{{ url_for('reports') }}" class="admin-card-link">Отчёты</a>
+            </div>
+        </div>
+        
+        <div class="admin-quick-links">
+            <h3>Быстрые действия</h3>
+            <div class="quick-links-grid">
+                <a href="{{ url_for('add_car') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Добавить автомобиль</a>
+                <a href="{{ url_for('add_client') }}" class="btn btn-primary"><i class="fas fa-user-plus"></i> Добавить клиента</a>
+                <a href="{{ url_for('add_deal') }}" class="btn btn-primary"><i class="fas fa-file-signature"></i> Оформить сделку</a>
+                <a href="{{ url_for('reports') }}" class="btn btn-secondary"><i class="fas fa-chart-bar"></i> Отчёты</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автосалон PRO — Система автоматизации продаж автомобилей</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <i class="fas fa-car"></i>
+                    <span>Автосалон PRO</span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#features" class="nav-link">Возможности</a></li>
+                    <li><a href="#technology" class="nav-link">Технологии</a></li>
+                    <li><a href="#interface" class="nav-link">Интерфейс</a></li>
+                    <li><a href="#perspectives" class="nav-link">Перспективы</a></li>
+                    <li><a href="#about" class="nav-link">О проекте</a></li>
+                    <li><a href="#contact" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero-секция -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Автосалон PRO</h1>
+                <p class="hero-subtitle">Современная система автоматизации учёта и управления продажами в автосалоне</p>
+                <div class="hero-buttons">
+                    <a href="#features" class="btn btn-primary">Узнать больше</a>
+                    <a href="#contact" class="btn btn-secondary">Скачать демо</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-car-icon">
+                    <i class="fas fa-car-side"></i>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-shape"></div>
+    </section>
+
+    <!-- Возможности -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Возможности системы</h2>
+            <p class="section-subtitle">Комплексное решение для автоматизации бизнес-процессов автосалона</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3 class="feature-title">Учёт автомобилей</h3>
+                    <p class="feature-text">Полный каталог с характеристиками, VIN-кодами, фотографиями и статусами. Быстрый поиск и фильтрация по всем параметрам.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="feature-title">Документооборот</h3>
+                    <p class="feature-text">Автоматическое формирование договоров купли-продажи, актов приёма-передачи и другой документации в формате PDF.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Аналитика и отчёты</h3>
+                    <p class="feature-text">Финансовые отчёты по выручке, анализ продаж, статистика по популярным моделям и остатки на складе.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Безопасность данных</h3>
+                    <p class="feature-text">Система авторизации с разграничением прав доступа, хеширование паролей и транзакционная целостность данных.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Управление клиентами</h3>
+                    <p class="feature-text">Ведение картотеки покупателей и продавцов, история обращений и предпочтений клиентов.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="feature-title">Оформление сделок</h3>
+                    <p class="feature-text">Полный цикл оформления: от заявки до передачи автомобиля. Фиксация цены, способа оплаты и даты передачи.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Технологический стек -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <h2 class="section-title">Технологический стек</h2>
+            <p class="section-subtitle">Надёжные и современные технологии для стабильной работы</p>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 class="tech-title">Python</h3>
+                    <p class="tech-text">Язык программирования для реализации бизнес-логики приложения</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="tech-title">PyQt6</h3>
+                    <p class="tech-text">Фреймворк для создания современного desktop-интерфейса</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="tech-title">SQLite</h3>
+                    <p class="tech-text">Встраиваемая СУБД для надёжного хранения данных</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <h3 class="tech-title">Git</h3>
+                    <p class="tech-text">Система контроля версий для управления кодом проекта</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Интерфейс программы -->
+    <section class="interface" id="interface">
+        <div class="container">
+            <h2 class="section-title">Интерфейс программы</h2>
+            <p class="section-subtitle">Интуитивно понятный и эргономичный дизайн</p>
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-list-alt"></i>
+                        <span>Каталог автомобилей</span>
+                    </div>
+                    <p class="screenshot-caption">Главное окно каталога с фильтрацией и поиском</p>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Карточка клиента</span>
+                    </div>
+                    <p class="screenshot-caption">Форма добавления и редактирования клиента</p>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-file-signature"></i>
+                        <span>Оформление сделки</span>
+                    </div>
+                    <p class="screenshot-caption">Модуль оформления договора купли-продажи</p>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Отчёты</span>
+                    </div>
+                    <p class="screenshot-caption">Панель аналитики и финансовых отчётов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Перспективы развития -->
+    <section class="perspectives" id="perspectives">
+        <div class="container">
+            <h2 class="section-title">Перспективы развития</h2>
+            <p class="section-subtitle">Презентационный сайт выступает как самостоятельный, но тесно связанный с основной разработкой продукт</p>
+            <div class="perspectives-grid">
+                <div class="perspective-card">
+                    <div class="perspective-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="perspective-title">Модуль онлайн-демонстрации</h3>
+                    <p class="perspective-text">Интеграция интерактивной демо-версии desktop-приложения, запускаемой в браузере через WebAssembly или удалённый доступ.</p>
+                </div>
+                <div class="perspective-card">
+                    <div class="perspective-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="perspective-title">Клиентский веб-интерфейс</h3>
+                    <p class="perspective-text">Превращение сайта в веб-клиент для основной системы, обеспечивающий менеджерам доступ к каталогу автомобилей и клиентской базе с любого устройства.</p>
+                </div>
+                <div class="perspective-card">
+                    <div class="perspective-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="perspective-title">Публичный API и документация</h3>
+                    <p class="perspective-text">Размещение на сайте технической документации по API для разработчиков, что позволит сторонним сервисам (например, сайтам объявлений) интегрироваться с системой учёта автосалона.</p>
+                </div>
+            </div>
+            <div class="perspectives-conclusion">
+                <p>Разработка веб-сайта не только успешно решает задачу презентации курсового проекта, но и демонстрирует владение полным циклом создания программного продукта — от backend-логики и desktop-интерфейса до frontend-разработки и веб-дизайна. Сайт служит наглядным подтверждением практических навыков в области современных веб-технологий и UX/UI проектирования.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- О проекте -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">О проекте</h2>
+            <div class="about-content">
+                <div class="about-info">
+                    <div class="about-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <h4>Учебное заведение</h4>
+                            <p>ПОУ «Уральский региональный колледж»</p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-user-graduate"></i>
+                        <div>
+                            <h4>Разработчик</h4>
+                            <p>Кучуков Александр Русланович</p>
+                            <span>Группа П-340</span>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <div>
+                            <h4>Научный руководитель</h4>
+                            <p>Курова Ксения Владимировна</p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <h4>Год разработки</h4>
+                            <p>2026</p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Город</h4>
+                            <p>Челябинск</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-description">
+                    <h3>Курсовая работа</h3>
+                    <p>Данный проект разработан в рамках курсовой работы по теме <strong>«Разработка программного обеспечения "Продажа автомобилей"»</strong> по специальности <strong>«Информационные системы и программирование»</strong>.</p>
+                    <p>Программный продукт представляет собой прототип информационной системы для автоматизации учёта и управления продажами в автосалоне, включающий каталог автомобилей, управление клиентами, оформление сделок и формирование отчётов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <footer class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Электронная почта</h4>
+                            <a href="mailto:avtosalon.pro@example.com">avtosalon.pro@example.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Телефон</h4>
+                            <a href="tel:+73512000000">+7 (351) 200-00-00</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Адрес</h4>
+                            <p>г. Челябинск</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-cta">
+                    <h3>Заинтересовало решение?</h3>
+                    <p>Свяжитесь с нами для получения дополнительной информации или скачайте демо-версию</p>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Скачать демо-версию</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Автосалон PRO. Все права защищены.</p>
+                <p>Кучуков А.Р. | ПОУ «Уральский региональный колледж»</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

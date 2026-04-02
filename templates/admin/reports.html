@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Отчёты{% endblock %}
+{% block content %}
+<section class="admin-section">
+    <div class="container">
+        <h2 class="section-title">Отчёты и аналитика</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-ruble-sign"></i>
+                <h3>{{ "{:,.0f}".format(total_revenue) }} ₽</h3>
+                <p>Общая выручка</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-handshake"></i>
+                <h3>{{ deals_count }}</h3>
+                <p>Всего сделок</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-calculator"></i>
+                <h3>{{ "{:,.0f}".format(avg_price) }} ₽</h3>
+                <p>Средняя сумма сделки</p>
+            </div>
+        </div>
+        
+        {% if popular_cars %}
+        <div class="report-section">
+            <h3><i class="fas fa-trophy"></i> Популярные модели</h3>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Марка</th>
+                        <th>Модель</th>
+                        <th>Продано</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for car in popular_cars %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ car.brand }}</td>
+                        <td>{{ car.model }}</td>
+                        <td>{{ car.sales_count }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+        
+        {% if monthly_sales %}
+        <div class="report-section">
+            <h3><i class="fas fa-calendar-alt"></i> Продажи по месяцам</h3>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Месяц</th>
+                        <th>Кол-во сделок</th>
+                        <th>Выручка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sale in monthly_sales %}
+                    <tr>
+                        <td>{{ sale.month }}</td>
+                        <td>{{ sale.deals_count }}</td>
+                        <td>{{ "{:,.0f}".format(sale.revenue) }} ₽</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

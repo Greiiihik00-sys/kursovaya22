@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Редактировать' if client else 'Добавить' }} клиента{% endblock %}
+{% block content %}
+<section class="admin-section">
+    <div class="container">
+        <h2 class="section-title">{{ 'Редактировать' if client else 'Добавить' }} клиента</h2>
+        
+        <form method="POST" class="form-card">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="last_name">Фамилия *</label>
+                    <input type="text" id="last_name" name="last_name" value="{{ client.last_name if client else '' }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="first_name">Имя *</label>
+                    <input type="text" id="first_name" name="first_name" value="{{ client.first_name if client else '' }}" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="middle_name">Отчество</label>
+                <input type="text" id="middle_name" name="middle_name" value="{{ client.middle_name if client else '' }}">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" name="phone" value="{{ client.phone if client else '' }}" required placeholder="+7 (999) 123-45-67">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="{{ client.email if client else '' }}" placeholder="example@mail.ru">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="passport">Паспортные данные</label>
+                <input type="text" id="passport" name="passport" value="{{ client.passport if client else '' }}" placeholder="Серия: 1234, Номер: 567890">
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Адрес</label>
+                <input type="text" id="address" name="address" value="{{ client.address if client else '' }}" placeholder="г. Челябинск, ул. ...">
+            </div>
+            
+            <div class="form-group">
+                <label for="client_type">Тип клиента</label>
+                <select id="client_type" name="client_type">
+                    <option value="buyer" {% if client and client.client_type == 'buyer' %}selected{% endif %}>Покупатель</option>
+                    <option value="seller" {% if client and client.client_type == 'seller' %}selected{% endif %}>Продавец</option>
+                </select>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Сохранить</button>
+                <a href="{{ url_for('admin_clients') }}" class="btn btn-secondary">Отмена</a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

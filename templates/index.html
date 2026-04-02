@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Автосалон PRO — Главная{% endblock %}
+{% block content %}
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Автосалон PRO</h1>
+            <p class="hero-subtitle">Современная система автоматизации учёта и управления продажами в автосалоне</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('catalog') }}" class="btn btn-primary">Смотреть каталог</a>
+                <a href="{{ url_for('admin_login') }}" class="btn btn-secondary">Войти</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-car-icon">
+                <i class="fas fa-car-side"></i>
+            </div>
+        </div>
+    </div>
+    <div class="hero-bg-shape"></div>
+</section>
+
+<section class="special" id="features">
+    <div class="container">
+        <h2 class="section-title">Специальные предложения</h2>
+        <div class="section-divider"></div>
+        {% if cars %}
+        <div class="cars-grid">
+            {% for car in cars[:10] %}
+            <div class="car-card">
+                <div class="car-image">
+                    {% if car.image %}
+                    <img src="{{ url_for('uploaded_file', filename=car.image) }}" alt="{{ car.brand }} {{ car.model }}">
+                    {% else %}
+                    <div class="car-placeholder"><i class="fas fa-car"></i></div>
+                    {% endif %}
+                </div>
+                <div class="car-info">
+                    <h3>{{ car.brand }} {{ car.model }}</h3>
+                    <p class="car-year">{{ car.year }} г.</p>
+                    <p class="car-price">{{ "{:,.0f}".format(car.price) }} ₽</p>
+                    <a href="{{ url_for('car_detail', car_id=car.id) }}" class="btn btn-sm">Подробнее</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center" style="margin-top: 40px;">
+            <a href="{{ url_for('catalog') }}" class="btn btn-primary">Весь каталог</a>
+        </div>
+        {% else %}
+        <p class="text-center">Автомобили пока не добавлены.</p>
+        {% endif %}
+    </div>
+</section>
+
+{% if deals %}
+<section class="deals-section" id="deals">
+    <div class="container">
+        <h2 class="section-title">Последние сделки</h2>
+        <div class="section-divider"></div>
+        <div class="deals-list">
+            {% for deal in deals %}
+            <div class="deal-item">
+                <div class="deal-car">
+                    {% if deal.image %}
+                    <img src="{{ url_for('uploaded_file', filename=deal.image) }}" alt="{{ deal.brand }} {{ deal.model }}">
+                    {% else %}
+                    <div class="deal-placeholder"><i class="fas fa-car"></i></div>
+                    {% endif %}
+                    <div class="deal-car-info">
+                        <h4>{{ deal.brand }} {{ deal.model }}</h4>
+                        <p>{{ deal.deal_date }}</p>
+                    </div>
+                </div>
+                <div class="deal-client">
+                    <i class="fas fa-user"></i> {{ deal.first_name }} {{ deal.last_name }}
+                </div>
+                <div class="deal-price">
+                    {{ "{:,.0f}".format(deal.deal_price) }} ₽
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
