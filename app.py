@@ -459,6 +459,10 @@ def reports():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+@app.route('/static/<path:filename>')
+def static_file(filename):
+    return send_from_directory('static', filename)
+
 if __name__ == '__main__':
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     with app.app_context():
