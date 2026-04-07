@@ -467,7 +467,13 @@ def reports():
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    # ✅ Исправление для Vercel: сначала ищем в /tmp, потом в исходной папке
+    if os.environ.get('VERCEL'):
+        tmp_path = os.path.join('/tmp/uploads', filename)
+        if os.path.exists(tmp_path):
+            return send_from_directory('/tmp/uploads', filename)
+    # Если нет в /tmp - отдаём из оригинальной папки uploads
+    return send_from_directory('uploads', filename)
 
 @app.route('/static/<path:filename>')
 def static_file(filename):
