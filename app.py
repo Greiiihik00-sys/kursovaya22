@@ -6,8 +6,18 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'avtosalon_pro_secret_key_2026'
-app.config['UPLOAD_FOLDER'] = 'uploads'
-app.config['DATABASE'] = 'avtosalon.db'
+
+# ✅ Исправление для Vercel: используем временную директорию /tmp для записи
+# На Vercel корневая папка доступна только для чтения, единственная папка для записи это /tmp
+if os.environ.get('VERCEL'):
+    # Запущено на Vercel
+    app.config['UPLOAD_FOLDER'] = '/tmp/uploads'
+    app.config['DATABASE'] = '/tmp/avtosalon.db'
+else:
+    # Локальная разработка
+    app.config['UPLOAD_FOLDER'] = 'uploads'
+    app.config['DATABASE'] = 'avtosalon.db'
+
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -469,6 +479,13 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 def initialize_app():
     """Инициализация базы данных при старте приложения"""
     try:
+        # При первом запуске копируем исходную базу из корня в /tmp
+        if os.environ.get('VERCEL') and not os.path.exists(app.config['DATABASE']):
+            import shutil
+            if os.path.exists('avtosalon.db'):
+                shutil.copy('avtosalon.db', app.config['DATABASE'])
+                print(f"✅ База данных скопирована в /tmp")
+        
         with app.app_context():
             init_db()
     except Exception as e:
